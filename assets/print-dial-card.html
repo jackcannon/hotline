@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotline Dial Card</title>
+<style>
+  :root { --bg: #F6F1E7; --ink: #1E1B18; --muted: #6B645B; --line: #E2D9C8; --red: #C8202F; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #161412; --ink: #F3EAD7; --muted: #A89F92; --line: #36312B; --red: #E04452; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 "Avenir Next", "Helvetica Neue", Arial, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 32px 16px; }
+  h1 { margin: 0 0 8px; font-size: 26px; }
+  p { color: var(--muted); margin: 0 0 16px; }
+  ol { color: var(--muted); margin: 0 0 16px; padding-left: 22px; }
+  li { margin: 2px 0; }
+  ol strong { color: var(--ink); }
+  kbd { font: inherit; font-size: .9em; padding: 0 4px; border: 1px solid var(--line); border-radius: 4px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin: 20px 0; }
+  input { width: 70px; padding: 4px 6px; font: inherit; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); }
+  button { font: inherit; font-weight: 600; padding: 6px 14px; border: 0; border-radius: 8px; background: var(--red); color: #fff; cursor: pointer; }
+  .preview img { width: min(100%, 360px); display: block; margin: 0 auto; }
+  .sheet { display: none; }
+  @media print {
+    @page { margin: 12mm; }
+    body { background: #fff; }
+    main { display: none; }
+    .sheet { display: flex; flex-direction: column; align-items: flex-start; gap: 8mm; }
+    .sheet .cut { border: 0.2mm dashed #999; border-radius: 50%; padding: 1mm; break-inside: avoid; }
+    .sheet img { display: block; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Hotline dial card</h1>
+  <p>The label for the centre of the rotary dial: the logo at the top, and the toggle modes at the bottom. Open this page in Chrome, because Chrome draws the SVG filters that give the tape its texture.</p>
+  <ol>
+    <li>Measure the centre of your dial, and set the diameter below.</li>
+    <li>Press <strong>Print</strong>.</li>
+    <li>In the Chrome print preview, click <strong>Print using system dialog</strong> at the bottom of the panel (or press <kbd>&#8997;&#8984;P</kbd>).</li>
+    <li>In the macOS print dialogue, set <strong>Scale</strong> to 100&nbsp;% (not "fit to page").</li>
+    <li>Under <strong>Media &amp; Quality</strong> (or <strong>Quality</strong>), set the quality to <strong>Best</strong>.</li>
+    <li>Print, then cut along the dashed line.</li>
+  </ol>
+  <p>Use the macOS dialogue: the Chrome dialogue has no quality setting, and at normal quality some printers add faint green lines to the grey.</p>
+  <div class="controls">
+    <label>Diameter <input type="number" id="d" min="10" max="120" step="0.5" value="39"> mm</label>
+    <label>Copies <input type="number" id="n" min="1" max="20" value="5"></label>
+    <button type="button" id="print">Print</button>
+  </div>
+  <div class="preview"><img src="hotline-dial-card.svg" alt="Hotline dial card"></div>
+</main>
+<div class="sheet" id="sheet"></div>
+<script>
+document.getElementById("print").addEventListener("click", () => {
+  const d = parseFloat(document.getElementById("d").value) || 39;
+  const n = Math.max(1, parseInt(document.getElementById("n").value) || 1);
+  document.getElementById("sheet").innerHTML = Array.from({ length: n }, () =>
+    `<div class="cut"><img src="hotline-dial-card.svg" style="width:${d}mm;height:${d}mm" alt=""></div>`).join("");
+  window.print();
+});
+</script>
+</body>
+</html>
