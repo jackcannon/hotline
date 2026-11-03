@@ -13,7 +13,7 @@
 | `firmware/` | Pico SDK project for the QT Py RP2040 (C, CMake). `src/config.h`: pins and settings; `mic.c`: ADC, filters, gates; `sidetone.c`: earpiece; `keyboard.c`: key queue; `usb_descriptors.c`, `usb_device.c`: USB |
 | `models/` | STL files of the 7 printed parts, Bambu Studio projects (`PRINT SETTINGS - 0.2mm.3mf`, `- 0.4mm.3mf`, named by nozzle), and `README.md` (each part and where it goes) |
 | `assets/` | Logo and dial card (design 81 from `.agent-files/logos/`): SVGs, PNGs, and `print-dial-card.html` to print the card at a set diameter |
-| `photos/` | `hotline.png` (finished phone, in the README), `wiring-board.jpg` and `wiring-casing.jpg` (inside views, in the build guide) |
+| `photos/` | `hotline.png` (finished phone, background removed, in the README), `hotline-desk.jpg` (the same photo uncut, metadata removed), `wiring-board.jpg` and `wiring-casing.jpg` (inside views, in the build guide) |
 
 Keep public facts (hardware, wiring, use, settings) in `README.md` and `docs/`, and point to them from here. Keep the engineering history and agent rules here, and private material in `.agent-files/`.
 

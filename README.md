@@ -6,7 +6,7 @@ Hotline turns an old rotary-dial telephone (here, an original red GPO 746) into 
 
 The Mac needs no software. The phone appears as a standard USB microphone and a standard USB keyboard, both called "Hotline".
 
-<p align="center"><img src="photos/hotline.png" alt="The finished Hotline: a red rotary-dial telephone with a mode toggle switch behind the dial" width="600"></p>
+<p align="center"><img src="photos/hotline.png" alt="The finished Hotline: a red rotary-dial telephone with a mode toggle switch behind the dial and a Hotline mode card in the centre of the dial" width="600"></p>
 
 ## Features
 
